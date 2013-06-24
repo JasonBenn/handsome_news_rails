@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <%= image_tag "https://news.ycombinator.com/y18.gif" %>
+    <%= link_to "Handsome News", root_url, class: 'logo' %>
+    <nav class="content">
+      <ul>
+        <li><%= link_to "Submit", new_post_path %></li>
+      </ul>
+    </nav>
+    <nav class="user">
+      <ul>
+        <% unless session[:user] %>
+          <li><a href="/signup">Sign Up<a></li>
+          <li><a href="/login">Login<a></li>
+        <% else %>
+          <li><a href="/logout">Logout<a></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <div>
+  </div>
+  <%= yield %>
 </body>
 </html>
