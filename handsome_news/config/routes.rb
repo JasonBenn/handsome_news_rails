@@ -1,5 +1,5 @@
 HandsomeNews::Application.routes.draw do
-  root to: 'Post#index'
+  root to: 'posts#index'
   resources :posts do
     resources :comments
     get :vote
