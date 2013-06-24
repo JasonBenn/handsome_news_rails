@@ -3,11 +3,17 @@ class Post < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  def self.by_votes
-    joins('left join votes on votes.post_id = posts.id').
+  scope :by_votes, joins('left join votes on votes.post_id = posts.id').
     select('posts.*, sum(votes.value) as vote_total').
     group('posts.id').
     order('vote_total DESC')
-  end
+
+
+  # def self.by_votes
+  #   joins('left join votes on votes.post_id = posts.id').
+  #   select('posts.*, sum(votes.value) as vote_total').
+  #   group('posts.id').
+  #   order('vote_total DESC')
+  # end
 
 end
