@@ -1,0 +1,7 @@
+<div class='container'>
+  <%= form_for @post, html: { class: "new_post" } do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <%= f.text_field :link_url, placeholder: "Url" %>
+    <%= f.submit "add post" %>
+  <% end %>
+</div>
