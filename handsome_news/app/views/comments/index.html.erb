@@ -1,0 +1,10 @@
+<div class="container">
+  <table class="comments">
+  <% @comments.each do |comment| %>
+    <tr>
+      <td>jasonbenn | 3 hours ago<br>
+      <span><%= comment.text %></td></span>
+    </tr>
+  <% end %>
+  </table>
+</div>
