@@ -1,15 +1,18 @@
 class CommentsController < ApplicationController 
 
   def index
-    @comments = Comment.all
+    @post = Post.find(params[:post_id]
+    @comments = @post.comments.all
   end
 
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
   end
 
   def create
-    comment = Comment.create(params[:comment])
-    redirect_to post_comments_path(comment)
+    post = Post.find(params[:post_id])
+    comment = post.comments.create(params[:comment])
+    redirect_to post_comments_path(post)
   end
 end
